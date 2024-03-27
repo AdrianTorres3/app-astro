@@ -1,5 +1,31 @@
 ---
+const pageTitle = "About me";
+var sumaFinal = sumar();
+function sumar() {
+  return 5 + 5;
+}
+const identidad = {
+  firstName: "Adrian",
+  country: "Mexico",
+  age: 21,
+  occupation: "Fullsatck developer",
+  hobbies: ["Play videogames", "workout", "Practice astro", "Practice laravel"],
+};
+const skills = [
+  "CSS",
+  "html",
+  "SQL",
+  "Mongo",
+  "Java",
+  "C#",
+  "C++",
+  "Python",
+  "Javascript",
+];
 
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,7 +34,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a href="/">Home</a>
@@ -16,8 +42,47 @@
     <a href="/blog">Blog</a>
 
     <h1>Mi primer sitio en Astro</h1>
-    <h2>Pantalla About</h2>
+    <h2>{pageTitle}</h2>
+    <p>Suma:</p>
+    <p>{sumaFinal}</p>
     <p>Estoy trabajndo en el tutorial introductorio de Astro</p>
     <p>Este sitio se ira actualizando a medida de que avance en el tutorial</p>
+    <hr />
+    <h1>Algunos datoas sobre mi:</h1>
+    <ul>
+      <li>Mi nombre es: {identidad.firstName}.</li>
+      <li>Mi edad es: {identidad.age}.</li>
+      <li>Vivo en {identidad.country} y trabajo como {identidad.occupation}</li>
+      <!-- MANERA EXTRANA DE DESPLEGAR LOS HOBBIES, CON UN IF? -->
+      <p>Algunos de mis hobbies:</p>
+      {
+        identidad.hobbies.length >= 2 && identidad.hobbies.length < 5 && (
+          <li>
+            Dos de mis aficiones son: {identidad.hobbies[0]} y{" "}
+            {identidad.hobbies[1]}{" "}
+          </li>
+        )
+      }
+      <!-- DESPLEGAR TODOS LOS HOBBIES -->
+      <p>Todos los hobbies:</p>
+      {identidad.hobbies.map((hobbie) => <li>{hobbie}</li>)}
+      <!--  -->
+    </ul>
+    <h3>Mis habilidades son</h3>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+    <hr />
+    {happy && <p>¡Estoy feliz de aprender Astro!</p>}
+
+    {!finished && <p>¡He terminado este tutorial!</p>}
+
+    {
+      goal === 3 ? (
+        <p>Mi objetivo es terminar en 3 días.</p>
+      ) : (
+        <p>Mi objetivo no son 3 días.</p>
+      )
+    }
   </body>
 </html>
