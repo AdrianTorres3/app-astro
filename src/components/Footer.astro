@@ -1,0 +1,25 @@
+---
+const platform = "github";
+const username = "withastro";
+const userTwitch = "itsindigos";
+const userYoutube = "Adrian Torres";
+const twitch = "twitch";
+const youtube = "youtube";
+import Social from "./Social.astro";
+---
+
+<footer>
+  <!-- <p>Mas informacion sobre mis proyectos en <a href={`https://www.${platform}.com/${username}`}>{platform}</a></p>
+    <p>Canal de Twitch: <a href={`https://www.${youtube}.com/${userYoutube}`}>{userYoutube}</a></p>
+    <p>Canal de Youtube: <a href={`https://www.${twitch}.com/${userTwitch}`}>{userTwitch}</a></p> -->
+  <Social platform={youtube} username="Adrian Torres" />
+  <Social platform="twitch" username={userTwitch} />
+  <Social platform="github" username="withastro" />
+</footer>
+<style>
+    footer{
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+</style>

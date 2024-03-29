@@ -1,5 +1,8 @@
 ---
-
+import "../styles/global.css";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 ---
 
 <html lang="en">
@@ -11,11 +14,9 @@
     <title>Astro</title>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog">Blog</a>
+    <Header />
 
-    <h1>Mi primer sitio Astro</h1>
+    <h1>Blogs Astro</h1>
     <h2>Pagina de blog</h2>
     <h1>Mi blog de Astro aprendizaje</h1>
     <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
@@ -30,5 +31,7 @@
       vitae deleniti sunt est iure, provident tenetur et modi consequatur autem
       atque voluptatibus.
     </p>
+    <Footer />
   </body>
+  <script> import "../scripts/menu.js";</script>
 </html>
